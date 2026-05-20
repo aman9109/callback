@@ -4,7 +4,7 @@ const app = express();
 // Graph webhook
 app.use('/graph/webhook', (req, res) => {
     const queryString = new URLSearchParams(req.query).toString();
-    const target = `http://104.211.103.136:8081/graph/webhook${queryString ? '?' + queryString : ''}`;
+    const target = `http://104.211.103.136:8080/graph/webhook${queryString ? '?' + queryString : ''}`;
     console.log('Redirecting to:', target);
     res.redirect(307, target);
 });
@@ -12,7 +12,7 @@ app.use('/graph/webhook', (req, res) => {
 // Calendar OAuth callback
 app.get('/ztva/api/calendar/callback', (req, res) => {
     const queryString = new URLSearchParams(req.query).toString();
-    const azureUrl = `http://104.211.103.136:8081/ztva/api/calendar/callback?${queryString}`;
+    const azureUrl = `http://104.211.103.136:8080/ztva/api/calendar/callback?${queryString}`;
     console.log('Redirecting to:', azureUrl);
     res.redirect(azureUrl);
 });
